@@ -1,0 +1,26 @@
+import java.util.*;
+
+class Solution {
+    public String[] sortPeople(String[] names, int[] heights) {
+        int n = names.length;
+
+        Integer[] index = new Integer[n];
+
+        // Store the indices
+        for (int i = 0; i < n; i++) {
+            index[i] = i;
+        }
+
+        // Sort indices based on heights in descending order
+        Arrays.sort(index, (a, b) -> heights[b] - heights[a]);
+
+        // Create the result array
+        String[] result = new String[n];
+
+        for (int i = 0; i < n; i++) {
+            result[i] = names[index[i]];
+        }
+
+        return result;
+    }
+}
